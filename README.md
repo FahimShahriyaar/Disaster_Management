@@ -9,5 +9,6 @@ chart and dynamic image upload isn't implemented due to some problem that I can'
 installation:
 1. install nodejs runtime
 2. install angular CLI
-3. run frontend: [npm start] it will opened at port 4200
-4. run backendL: [npm start] it will opened at port 3000
+3. install node_modules in both frontend & backend [npm install]
+4. run frontend: [npm start] it will opened at port 4200
+5. run backendL: [npm start] it will opened at port 3000
