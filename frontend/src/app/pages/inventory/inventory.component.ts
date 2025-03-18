@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { InventoryFormComponent } from '../../components/inventory-form/inventory-form.component';
 import { InventoryListComponent } from '../../components/inventory-list/inventory-list.component';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'page-inventory',
@@ -10,4 +11,5 @@ import { InventoryListComponent } from '../../components/inventory-list/inventor
 })
 export class InventoryComponent {
 
+  store=inject(StoreService)
 }

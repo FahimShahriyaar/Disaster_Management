@@ -7,9 +7,7 @@
     <a routerLink="volunteer">Volunteer</a>
     <a routerLink="inventory">Inventory</a>
     <a routerLink="admin">Admin</a>
-    @if(profile()){<button (click)="logout()">logout</button>}
+    @if(profile()){<button (click)="logout()">logout</button><small>{{role()+':'+profile()}}</small>}
     @else{<a routerLink="login">Login</a>}
   </ul>
-  @if(profile()){<small>{{role()+':'+profile()}}</small>}
-  
 </nav>

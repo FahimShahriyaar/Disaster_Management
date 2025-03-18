@@ -76,8 +76,12 @@ export class StoreService {
 
 
 
-  Login(data:any){
+  Login(data){
     return this.http.post<any>('http://localhost:3000/api/account/login',data)
+  }
+  Register(data){
+    return this.http.post<any>('http://localhost:3000/api/account/signup',data)
+
   }
 
 }

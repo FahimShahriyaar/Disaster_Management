@@ -179,18 +179,17 @@ api.put('/volunteer', async function(req, res, next) {
 api.post('/account/signup', async function(req, res, next) {
   
    //hashing user password
-   const salt=await bcrypt.genSalt(10)
-   const password=await bcrypt.hash(req.body.password,salt)
+  //  const salt=await bcrypt.genSalt(10)
+  //  const password=await bcrypt.hash(req.body.password,salt)
 
-   const account_data={...req.body,password}
+   const account_data={...req.body}
 
-  // req.body.role==='volunteer' && (account_data['volunteer_info']={status:'unavailable',current_task:null,location:null});
   try{
-    let lastID=await accountModel.findOne().sort({ createdAt: -1 })
+    let lastID=await accountModel.findOne().sort({ _id: -1 })
     if(lastID==null) lastID='ACC-1'
-    else lastID='ACC-'+(Number(lastID['_id'].split('-')[1])+1).toString()
+    else lastID='ACC-'+(Number(lastID['account_id'].split('-')[1])+1).toString()
 
-    account_data['_id']=lastID
+    account_data['account_id']=lastID
     const data=await accountModel.create(account_data)
     res.json({success:true,data})
   }

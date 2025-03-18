@@ -27,7 +27,7 @@ export class LoginComponent {
 
   formSubmit(){
     this.store.Login(this.login_form.value).subscribe(res=>{
-      if(res.success==true) {
+      if(res.success) {
         this.store.role.set(this.login_form.value.role)
         this.store.profile.set(this.login_form.value.email)
         localStorage.setItem('profile',this.login_form.value.email)
@@ -37,7 +37,7 @@ export class LoginComponent {
       else{
         alert(res.msg)
       }
-      
+
     })
   }
 }

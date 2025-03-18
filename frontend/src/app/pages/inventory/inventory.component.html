@@ -1,8 +1,13 @@
-<section class="list-wrapper">
-  <inventory-list/>
-</section>
+@if (store.role()=='admin' || store.role()=='volunteer') {
+  <section class="list-wrapper">
+    <inventory-list/>
+  </section>
 
 
-<section class="form-wrapper">
-  <inventory-form/>
-</section>
+  <section class="form-wrapper">
+    <inventory-form/>
+  </section>
+}
+@else{
+  <h1>Permission Denied</h1>
+}
