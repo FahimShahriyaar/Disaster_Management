@@ -8,6 +8,10 @@ section{
   overflow-x: auto;
 }
 
+.form-wrapper{
+  width: 80%;
+  margin: 0 auto;
+}
 
 
 h1{
