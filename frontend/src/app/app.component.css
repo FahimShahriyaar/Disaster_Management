@@ -1,0 +1,9 @@
+header{
+  height: 10vh;
+  background-color: blueviolet;
+}
+
+main{
+  height: 90vh;
+  overflow: auto;
+}

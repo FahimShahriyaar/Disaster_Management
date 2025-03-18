@@ -1,0 +1,12 @@
+<div class="crisis-section">
+  <h2>Recent crisiss</h2>
+  <table>
+    <tr><th>ID</th><th>Title</th><th>Location</th></tr>
+    <tr *ngFor="let crisis of records">
+      <td>{{crisis.crisis_id}}</td>
+      <td>{{crisis.title}}</td>
+      <td>{{crisis.location}}</td>
+    </tr>
+  </table>
+  <button class="navigate-btn" (click)="goto()">View crisis</button>
+</div>

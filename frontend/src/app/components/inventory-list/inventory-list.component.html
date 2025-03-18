@@ -1,0 +1,40 @@
+<h1>Inventory List</h1>
+<table>
+  <select (change)="filterList($event)">
+    <option value="">Choose Filter</option>
+    <option value="donated">donated</option>
+    <option value="purchased">purchased</option>
+  </select>
+  <thead>
+    <tr>
+      @for (item of Columns; track $index) {<th>{{item}}</th>}
+      <th *ngIf="store.role()=='admin'"></th>
+    </tr>
+  </thead>
+  @for (item of records; track $index) {
+  <tbody>
+    <tr class="first" [class.active]="selectedRow==$index">
+      <td>{{item.product_id}}</td>
+      <td #product_name [attr.contenteditable]="editRow==$index">{{item.product_name}}</td>
+      <td #price [attr.contenteditable]="editRow==$index">{{item.price}}</td>
+      <td #quantity [attr.contenteditable]="editRow==$index">{{item.quantity}}</td>
+      <td>{{item.total}}</td>
+      <td>{{item.createdAt | date: 'dd-MMM-yy' }}</td>
+      <td #inventory_type [attr.contenteditable]="editRow==$index">{{item.inventory_type}}</td>
+      <td style="width: 150px;" *ngIf="store.role()=='admin'">
+        <div *ngIf="editRow!=$index; else apply"><button (click)="enableEdit($index)">Edit</button><button (click)="delete($index)">Delete</button></div>
+        <ng-template #apply>
+          <button (click)="update($index,product_name,price,quantity,inventory_type)">Apply</button>
+          <button (click)="enableEdit($index)">Cancel</button>
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+  }
+</table>
+
+<div class="pagination">
+  @for (item of page_count; track $index) {
+    <button (click)="changePage($index+1)" [class.active]="selectedPage==$index+1">{{$index+1}}</button>
+  }
+</div>

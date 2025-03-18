@@ -1,0 +1,36 @@
+<h1>Volunteers List</h1>
+<table>
+  <select (change)="filterList($event)">
+    <option value="">Choose Filter</option>
+    <option value="unavailable">unavailable</option>
+    <option value="assigned">assigned</option>
+    <option value="available">availble</option>
+  </select>
+
+  <thead>
+    <tr>
+      @for (item of Columns; track $index) {<th>{{item}}</th>}
+      <th *ngIf="store.role()=='admin' && routeRole=='admin'"></th>
+    </tr>
+  </thead>
+  @for (item of records; track $index) {
+  <tbody>
+    <tr class="first" [class.active]="selectedRow==$index">
+      <td>{{item._id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.age}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.volunteer_info.status}}</td>
+      <td>{{item.volunteer_info.task}}</td>
+      <td *ngIf="store.role()=='admin' && routeRole=='admin'"><button *ngIf="item.volunteer_info.status=='available'" (click)="openModal(item._id)">Assign</button></td>
+    </tr>
+  </tbody>
+  }
+</table>
+
+<div class="pagination">
+  @for (item of page_count; track $index) {
+    <button (click)="changePage($index+1)" [class.active]="selectedPage==$index+1">{{$index+1}}</button>
+  }
+</div>

@@ -1,0 +1,75 @@
+<h1>Crisis List</h1>
+
+<table>
+  <select (change)="filterList($event)">
+    <option value="">Choose Filter</option>
+    <option value="severe">Severity: severe</option>
+    <option value="moderate">Severity: moderate</option>
+    <option value="critical">Severity: critical</option>
+    <option value="pending">Status: pending</option>
+    <option value="unresolved">Status: unresolved</option>
+    <option value="resolving">Status: resolving</option>
+    <option value="resolved">Status: resolved</option>
+  </select>
+
+  <thead>
+    <tr>
+      @for (item of Columns; track $index) {<th>{{item}}</th>}
+      <th *ngIf="store.role()=='admin' && routeRole=='admin'"></th>
+    </tr>
+  </thead>
+  @for (item of records; track $index) {
+  <tbody>
+    <tr class="first" [class.active]="selectedRow==$index">
+      <td>{{item.crisis_id}}</td>
+      <td>{{item.title}}</td>
+      <td #severity [attr.contenteditable]="editRow==$index">{{item.severity}}</td>
+      <td>{{item.date }}</td>
+      <td>{{item.location}}</td>
+      <td #status [attr.contenteditable]="editRow==$index">{{item.status}}</td>
+      <td style="width: 150px;" *ngIf="store.role()=='admin' && routeRole=='admin'">
+        @if(item.status=='pending'){
+        <button (click)="approve($index)">Approve</button>
+        }
+        @else{
+        <div *ngIf="editRow!=$index; else apply"><button (click)="enableEdit($index)">Edit</button><button
+            (click)="delete($index)">Delete</button></div>
+        <ng-template #apply>
+          <button (click)="update($index,severity,status,affected)">Apply</button>
+          <button (click)="enableEdit($index)">Cancel</button>
+        </ng-template>
+        }
+      </td>
+    </tr>
+    <tr [class.active]="selectedRow==$index" class="collapsible">
+      <td colspan="7">
+        <div class="collapsible-body">
+          <div class="image-gallery">
+            <img src="/disaster/flood/flood1.jpeg" alt="">
+          </div>
+          <div class="extra">
+            <h3>Description</h3>
+            <p>{{item.description}}</p>
+            <table>
+              <tr>
+                <td>Population:</td>
+                <td>{{item.population}}</td>
+              </tr>
+              <tr>
+                <td>Affected:</td>
+                <td #affected [attr.contenteditable]="editRow==$index">{{item.affected}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+  }
+</table>
+
+<div class="pagination">
+  @for (item of page_count; track $index) {
+  <button (click)="changePage($index+1)" [class.active]="selectedPage==$index+1">{{$index+1}}</button>
+  }
+</div>

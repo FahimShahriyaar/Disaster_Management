@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="content">
+      <!-- Registration form -->
+      <form [formGroup]="login_form" (ngSubmit)="formSubmit()">
+         <!-- Title and Role section -->
+         <div class="tr">
+          <div class="title">Login</div>
+          <div class="role-box">
+            <div>
+              <input type="radio" value="admin" formControlName="role">
+              <label for="role">Admin</label>
+            </div>
+            <div>
+              <input type="radio" value="volunteer" formControlName="role">
+              <label for="role">Volunteer</label>
+            </div>
+            <div>
+              <input type="radio" value="user" formControlName="role">
+              <label for="role">User</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="user-details">
+          <!-- Input for Email -->
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" formControlName="email">
+          </div>
+          <!-- Input for Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" formControlName="password">
+          </div>
+        </div>
+        <!-- Submit button -->
+        <div class="button">
+          <input type="submit" value="Login">
+        </div>
+        <div class="text">
+          <h4>Don't have an account? <a routerLink="/register">Signup</a></h4>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

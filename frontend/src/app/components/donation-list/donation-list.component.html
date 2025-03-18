@@ -1,0 +1,51 @@
+<h1>Donations List</h1>
+<table>
+  <thead>
+    <tr>
+      @for (item of Columns; track $index) {<th>{{item}}</th>}
+      <th *ngIf="store.role()=='admin' && routeRole=='admin'"></th>
+    </tr>
+  </thead>
+  @for (item of records; track $index) {
+  <tbody>
+    <tr class="first" [class.active]="selectedRow==$index">
+      <td>{{item.donation_id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.amount}} BDT</td>
+      <td>{{item.createdAt | date: 'dd-MMM-yy' }}</td>
+      <td>{{item.email}}</td>
+      <td *ngIf="store.role()=='admin' && routeRole=='admin'"><button (click)="toggleExpandRow($index)">Details</button></td>
+    </tr>
+    <tr *ngIf="store.role()=='admin' && routeRole=='admin'" [class.active]="selectedRow==$index" class="collapsible">
+      <td colspan="6">
+        <div class="collapsible-body">
+          <table>
+            <tr>
+              <td>Category:</td>
+              <td>{{item.donation_type}}</td>
+            </tr>
+            <tr>
+              <td>Phone:</td>
+              <td>{{item.phone}}</td>
+            </tr>
+            <tr>
+              <td>Payment Method:</td>
+              <td>{{item.payment_method}}</td>
+            </tr>
+            <tr>
+              <td>Transaction ID:</td>
+              <td>{{item.transaction_id}}</td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+  }
+</table>
+
+<div class="pagination">
+  @for (item of page_count; track $index) {
+    <button (click)="changePage($index+1)" [class.active]="selectedPage==$index+1">{{$index+1}}</button>
+  }
+</div>

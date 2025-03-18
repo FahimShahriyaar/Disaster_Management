@@ -1,0 +1,12 @@
+<div class="volunteer-section">
+  <h2>Available Volunteers</h2>
+  <table>
+    <tr><th>ID</th><th>Name</th><th>Status</th></tr>
+    <tr *ngFor="let volunteer of records">
+      <td>{{volunteer.account_id}}</td>
+      <td>{{volunteer.name}}</td>
+      <td>{{volunteer.volunteer_info.status}}</td>
+    </tr>
+  </table>
+  <button class="navigate-btn" (click)="goto()">View Volunteers</button>
+</div>

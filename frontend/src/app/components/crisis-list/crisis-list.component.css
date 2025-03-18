@@ -1,0 +1,139 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  position: relative;
+}
+
+h1{
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+
+tbody{
+  margin: 20px 0;
+}
+
+thead{
+  border: 2px solid tomato;
+}
+
+td {
+  text-align: left;
+  padding: 16px;
+}
+
+th{
+  padding: 16px;
+  background-color: tomato;
+  color: white;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+tbody:nth-of-type(odd){
+  background-color: yellowgreen;
+  border: 2px solid yellowgreen;
+}
+tbody:nth-of-type(even){
+  background-color: springgreen;
+  border: 2px solid springgreen;
+}
+
+
+
+.first button{
+  padding: 5px;
+  background-color: blue;
+  color: white;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.collapsible{
+  /* display: none; */
+  background-color: azure;
+  /* border: 1px solid green; */
+  &>td{
+    padding: 10px;
+  }
+}
+
+.collapsible-body{
+  display: flex;
+  gap: 10px;
+  /* align-items: center; */
+
+}
+
+tbody tr.active{
+  display: table-row;
+}
+
+tbody tr.active:first-child{
+  background-color: green;
+  color: white;
+}
+
+
+.pagination{
+  margin: 10px 0;
+  text-align: right;
+  button{
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+
+  button.active{
+    background-color: rgb(13, 216, 74);
+    color: white;
+  }
+}
+
+.collapsible-body .image-gallery{
+  flex: 1;
+  display: flex;
+  gap: 5px;
+  img{
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.collapsible-body .extra{
+  flex: 1;
+
+  table{
+    border: none;
+    margin-top: 10px;
+  }
+  table td{
+    padding: 8px;
+  }
+  table td:first-child{
+    width: 30%;
+    padding-left: 0;
+    font-weight: 500;
+  }
+}
+
+select{
+  background-color: rgb(171, 196, 171);
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  translate: 0 -100%;
+}
+
+[contenteditable=true]{
+  border: 2px solid red;
+}

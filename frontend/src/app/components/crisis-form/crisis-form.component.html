@@ -1,0 +1,49 @@
+<h1>Crisis Form</h1>
+<form [formGroup]="crisis_form" (ngSubmit)="formSubmit()">
+  <div class="row">
+    <div class="column">
+      <div class="input-box">
+        <span>Crisis Title :</span>
+        <input type="text" formControlName="title">
+      </div>
+      <div class="input-box">
+        <span>Location :</span>
+        <input type="text" formControlName="location">
+      </div>
+      <div class="input-box">
+        <span>Date :</span>
+        <input type="date" formControlName="date">
+      </div>
+      <div class="input-box">
+        <span>description :</span>
+        <textarea rows="1" formControlName="description"></textarea>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="input-box">
+        <span>Severity :</span>
+        <select formControlName="severity">
+          <option value="severe">Severe</option>
+          <option value="moderate">Moderate</option>
+          <option value="critical">Critical</option>
+        </select>
+      </div>
+      <div class="input-box">
+        <span>Population :</span>
+        <input type="number" formControlName="population">
+      </div>
+      <div class="input-box">
+        <span>Affected :</span>
+        <input type="number" formControlName="affected">
+      </div>
+      <div class="input-box">
+        <span>Image :</span>
+        <!-- <input type="file" (change)="onFileSelect($event)" accept="image/*"> -->
+        <input type="file" disabled accept="image/*">
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn">Submit</button>
+</form>

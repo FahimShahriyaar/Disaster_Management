@@ -1,0 +1,17 @@
+section{
+  margin: 30px auto;
+}
+
+.list-wrapper{
+  width: 95%;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+
+
+h1{
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0;
+}

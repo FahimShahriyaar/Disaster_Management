@@ -1,0 +1,121 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  position: relative;
+}
+
+h1{
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+
+td {
+  text-align: left;
+  padding: 16px;
+}
+
+th{
+  padding: 16px;
+  background-color: tomato;
+  color: white;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+tbody:nth-of-type(odd){
+  background-color: rgb(213, 219, 207);
+}
+
+
+/* .first td:last-child{
+  width: 20px;
+  padding: 0 16px;
+  text-align: center;
+
+} */
+
+.first button{
+  padding: 5px;
+  background-color: blue;
+  color: white;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.collapsible{
+  display: none;
+  background-color: azure;
+  border: 1px solid green;
+  &>td{
+    padding: 10px;
+  }
+}
+
+.collapsible-body{
+  display: flex;
+  justify-content: center;
+
+  table{
+    border: none;
+    width: 100%;
+
+    tr td{
+      padding: 10px;
+    }
+
+    tr td:first-child{
+      text-align: right;
+      width: 50%;
+      padding-right: 5px;
+      font-weight: 500;
+    }
+
+    tr td:last-child{
+      text-align: left;
+      width: 50%;
+      padding-left: 5px;
+    }
+  }
+}
+
+tbody tr.active{
+  display: table-row;
+}
+
+tbody tr.active:first-child{
+  background-color: green;
+  color: white;
+}
+
+
+.pagination{
+  margin: 10px 0;
+  text-align: right;
+  button{
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+
+  button.active{
+    background-color: rgb(13, 216, 74);
+    color: white;
+  }
+}
+
+select{
+  background-color: rgb(171, 196, 171);
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  translate: 0 -100%;
+}

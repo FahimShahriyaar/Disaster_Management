@@ -1,0 +1,36 @@
+.fund-section {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: #f3f9ff;
+  text-align: center;
+}
+
+.fund-amount {
+  font-size: 32px;
+  font-weight: bold;
+  color: #004085;
+  margin-top: 10px;
+}
+
+.chart-container {
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.navigate-btn {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.navigate-btn:hover {
+  background: #0056b3;
+}

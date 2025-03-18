@@ -1,0 +1,15 @@
+<nav>
+  <h1>Disaster Management</h1>
+  <ul>
+    <a routerLink="home">Home</a>
+    <a routerLink="donation">Donation</a>
+    <a routerLink="crisis">Crisis</a>
+    <a routerLink="volunteer">Volunteer</a>
+    <a routerLink="inventory">Inventory</a>
+    <a routerLink="admin">Admin</a>
+    @if(profile()){<button (click)="logout()">logout</button>}
+    @else{<a routerLink="login">Login</a>}
+  </ul>
+  @if(profile()){<small>{{role()+':'+profile()}}</small>}
+  
+</nav>

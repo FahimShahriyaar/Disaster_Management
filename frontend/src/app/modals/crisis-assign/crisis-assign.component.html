@@ -1,0 +1,28 @@
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="modalOverlay"></div>
+
+<div class="modal">
+  <div class="head">
+    <button class="close-btn" (click)="closeModal()">X</button>
+    <h2>Table Data</h2>
+  </div>
+  <table class="modal-table">
+    <thead>
+      <tr>
+        @for (item of Columns; track $index) {<th>{{item}}</th>}
+        <th></th>
+      </tr>
+    </thead>
+    @for (item of records; track $index) {
+    <tbody>
+      <tr>
+        <td>{{item._id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.severity}}</td>
+        <td>{{item.status}}</td>
+        <td class="btn-cell"><button (click)="assignTask(item._id,$index)">{{selectedRow==$index?'✓': '+'}}</button></td>
+      </tr>
+      </tbody>}
+  </table>
+
+</div>

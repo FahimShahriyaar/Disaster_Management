@@ -1,0 +1,35 @@
+section {
+  margin: 30px auto;
+}
+
+.list-wrapper {
+  width: 95%;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+
+nav {
+  background-color: brown;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+
+    &:hover {
+      background-color: rgb(201, 70, 70);
+    }
+  }
+}

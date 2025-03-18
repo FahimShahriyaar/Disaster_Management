@@ -1,0 +1,58 @@
+<h1>Donation Form</h1>
+  <form [formGroup]="donation_form" (ngSubmit)="formSubmit()">
+      <div class="row">
+          <div class="column">
+              <h3 class="title">Billing Address</h3>
+              <div class="input-box">
+                  <span>Full Name :</span>
+                  <input type="text" formControlName="name">
+              </div>
+              <div class="input-box">
+                  <span>Email :</span>
+                  <input type="email" formControlName="email">
+              </div>
+              <div class="input-box">
+                  <span>Phone :</span>
+                  <input type="text" formControlName="phone">
+              </div>
+              <div class="input-box">
+                  <span>Address :</span>
+                  <input type="text" formControlName="address">
+              </div>
+          </div>
+
+          <div class="column">
+              <h3 class="title">Payment</h3>
+              <div class="input-box">
+                <span>Method :</span>
+                <select formControlName="payment_method">
+                  <option value="bkash">Bkash</option>
+                  <option value="nagod">Nagad</option>
+                  <option value="rocket">Rocket</option>
+                  <option value="upay">Upay</option>
+                  <option value="Ucash">Ucash</option>
+                  <option value="mobicash">Mobicash</option>
+                </select>
+              </div>
+              <div class="input-box">
+                <span>Amount :</span>
+                <input type="number" formControlName="amount">
+              </div>
+              <div class="input-box">
+                <span>Transaction ID :</span>
+                <input type="text" formControlName="transaction_id">
+              </div>
+              <div class="input-box">
+                <span>Donation Type :</span>
+                <select formControlName="donation_type">
+                  <option value="Disaster Relief">Disaster Relief</option>
+                  <option value="Medical Aid">Medical Aid</option>
+                  <option value="Environmental Conservation">Environmental Conservation</option>
+                  <option value="Animal Welfare">Animal Welfare</option>
+                </select>
+              </div>
+          </div>
+      </div>
+
+      <button type="submit" class="btn" [disabled]="donation_form.invalid">Submit</button>
+  </form>

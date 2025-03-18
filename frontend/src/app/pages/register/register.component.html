@@ -1,0 +1,89 @@
+<div class="wrapper">
+  <div class="container">
+
+    <div class="content">
+      <!-- Registration form -->
+      <form [formGroup]="register_form" (ngSubmit)="register()">
+        <!-- Title and Role section -->
+        <div class="tr">
+          <div class="title">Registration</div>
+          <div class="role-box">
+            <div>
+              <input type="radio" value="admin" formControlName="role">
+              <label for="role">Admin</label>
+            </div>
+            <div>
+              <input type="radio" value="volunteer" formControlName="role">
+              <label for="role">Volunteer</label>
+            </div>
+            <div>
+              <input type="radio" value="user" formControlName="role">
+              <label for="role">User</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="user-details">
+          <!-- Input for Name -->
+          <div class="input-box">
+            <span class="details">Name</span>
+            <input type="text" placeholder="Enter your name" formControlName="name">
+          </div>
+
+          <!-- Input for Role-->
+          <div class="input-box">
+            <span class="details">Age</span>
+            <input type="number" placeholder="Enter your age" formControlName="age">
+          </div>
+
+          <!-- Input for Email -->
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" formControlName="email">
+          </div>
+
+          <!-- Input for Gender -->
+          <div class="input-box">
+            <span class="details">Gender</span>
+            <select formControlName="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
+          <!-- Input for Phone Number -->
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" formControlName="phone">
+          </div>
+
+          <!-- Input for Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password" formControlName="password">
+          </div>
+
+          <!-- Input for Addresss -->
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="password" placeholder="Enter your address" formControlName="address">
+          </div>
+
+          <!-- Input for Confirm Password -->
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" formControlName="confirm_password">
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+        <div class="text">
+          <h4>Already have an account? <a routerLink="/login">Login</a></h4>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
